@@ -1,0 +1,48 @@
+.uText--Center {
+    text-align: center !important;
+}
+
+.uMarginBottom {
+    &--Small {
+        margin-bottom: 1rem !important;
+
+        @include respond(phone) {
+            margin-bottom: 1.5rem !important;
+        }
+    }
+
+    &--Medium {
+        margin-bottom: 1.5rem !important;
+
+        @include respond(phone) {
+            margin-bottom: 2rem !important;
+        }
+    }
+
+    &--Big {
+        margin-bottom: 2.5rem !important;
+
+        @include respond(phone) {
+            margin-bottom: 3.5rem !important;
+        }
+
+    }
+}
+
+.uOpacity{
+    opacity: 1;
+
+    &--Medium {
+        opacity: .7;
+    }
+
+    &--Small {
+        opacity: .5;
+    }
+}
+
+
+
+
+
+
