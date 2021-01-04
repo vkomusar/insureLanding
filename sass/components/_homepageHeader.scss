@@ -1,1 +1,69 @@
-https://www.frontendmentor.io/challenges/insure-landing-page-uTU68JV8/intro
+ // https://www.frontendmentor.io/challenges/insure-landing-page-uTU68JV8/intro
+
+ .homepageHeader {
+
+    width: 100%;
+    height: auto;
+    display: flex;
+    background-color: $color-primary;
+    position: relative;
+
+    &:after {
+        content: url('../images/bg-pattern-intro-right-desktop.svg');
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    &:before {
+        content: url('../images/bg-pattern-intro-left-desktop.svg');
+        position: absolute;
+        top: 70%;
+        left: 0;
+        z-index: 999;
+    }
+
+    &Wrapper {
+        width: 100%;
+        background-color: $color-white;
+        display: flex;
+        background-color: $color-primary;
+        padding: 12rem 0 12rem 0
+    }
+
+    &Content {
+        width: 50%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        //padding: 8rem 3rem 8rem 0;
+
+    }
+
+    &Btn{
+        border: 1px solid $color-white;
+        color: $color-white;
+        font-weight: 600;
+        padding: 10px 26px;
+        background-color: transparent;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        transition: all .5s ease-in-out;
+        text-decoration: none;
+        
+    }
+
+    &Image {
+        width: 50%;
+        //padding: 8rem 2rem 8rem 0;
+        position: relative;
+
+        & img {
+            position: absolute;
+            right: 0;
+            z-index: 999;
+        }
+    }
+
+ }

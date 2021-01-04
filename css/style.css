@@ -16,34 +16,6 @@ ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */
 @import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem); }
-  80% {
-    transform: translateX(1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
 *,
 *::after,
 *::before {
@@ -70,80 +42,40 @@ body {
     body {
       padding: 0; } }
 
-.heading {
-  font-weight: 700; }
-  .headingPrimary {
-    color: #41a99d;
-    font-size: 3rem; }
-    @media only screen and (max-width: 37.5em) {
-      .headingPrimary {
-        font-size: 3rem; } }
-  .headingSecondary {
-    color: #bfdf32;
-    font-size: 2rem; }
-    @media only screen and (max-width: 37.5em) {
-      .headingSecondary {
-        font-size: 2.5rem; } }
-  .heading--White {
-    color: #ffffff; }
+p, ul li a {
+  font-family: 'Karla'; }
+
+.headingPrimary {
+  font-size: 8rem;
+  font-family: 'DM Serif Display', serif;
+  letter-spacing: -1px;
+  color: #FFFFFF;
+  font-weight: 700;
+  display: block;
+  line-height: .88; }
+  .headingPrimary--Dark {
+    color: #000000; }
 
 .paragraph {
-  font-weight: lighter;
-  font-size: 1.5rem;
-  line-height: 1.5; }
-  @media only screen and (max-width: 37.5em) {
-    .paragraph {
-      font-size: 2rem;
-      line-height: 1.8; } }
-  @media only screen and (max-width: 56.25em) {
-    .paragraph {
-      font-size: 2rem;
-      line-height: 1.8; } }
-  @media only screen and (max-width: 75em) {
-    .paragraph {
-      font-size: 2rem;
-      line-height: 1.8; } }
-  .paragraph--White {
-    color: #ffffff; }
-  .paragraph--Grey {
-    color: #C0C1C6; }
-  .paragraphPrice {
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 60px;
-    color: #ffffff; }
-    @media only screen and (max-width: 37.5em) {
-      .paragraphPrice {
-        font-size: 1.8rem; } }
-    .paragraphPrice--Number {
-      font-size: 3rem;
-      margin-right: 1rem; }
-      @media only screen and (max-width: 37.5em) {
-        .paragraphPrice--Number {
-          font-size: 4.5rem; } }
-    .paragraphPrice--White {
-      color: #ffffff; }
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #FFFFFF; }
 
 .uText--Center {
   text-align: center !important; }
 
 .uMarginBottom--Small {
-  margin-bottom: 1rem !important; }
-  @media only screen and (max-width: 37.5em) {
-    .uMarginBottom--Small {
-      margin-bottom: 1.5rem !important; } }
+  margin-bottom: 1.5rem !important;
+  /*@include respond(phone) {
+            margin-bottom: 1.5rem !important;
+        }*/ }
 
 .uMarginBottom--Medium {
-  margin-bottom: 1.5rem !important; }
-  @media only screen and (max-width: 37.5em) {
-    .uMarginBottom--Medium {
-      margin-bottom: 2rem !important; } }
+  margin-bottom: 3rem !important; }
 
 .uMarginBottom--Big {
   margin-bottom: 2.5rem !important; }
-  @media only screen and (max-width: 37.5em) {
-    .uMarginBottom--Big {
-      margin-bottom: 3.5rem !important; } }
 
 .uOpacity {
   opacity: 1; }
@@ -152,9 +84,177 @@ body {
   .uOpacity--Small {
     opacity: .5; }
 
+.uLineTop {
+  width: 200px;
+  height: 1px;
+  border-top: 1px solid #FFFFFF;
+  padding-bottom: 4rem; }
+  .uLineTop--Dark {
+    border-top: 1px solid #2D2640; }
+
+.uButton {
+  border: 1px solid #2D2640;
+  color: #2D2640;
+  font-weight: 600;
+  padding: 10px 26px;
+  background-color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  transition: all .5s ease-in-out; }
+  .uButton:hover {
+    color: #FFFFFF;
+    background-color: #2D2640;
+    cursor: pointer; }
+  .uButton--White {
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF; }
+    .uButton--White:hover {
+      color: #2D2640;
+      background-color: #FFFFFF; }
+
+.homepageHeader {
+  width: 100%;
+  height: auto;
+  display: flex;
+  background-color: #2D2640;
+  position: relative; }
+  .homepageHeader:after {
+    content: url("../images/bg-pattern-intro-right-desktop.svg");
+    position: absolute;
+    top: 0;
+    right: 0; }
+  .homepageHeader:before {
+    content: url("../images/bg-pattern-intro-left-desktop.svg");
+    position: absolute;
+    top: 70%;
+    left: 0;
+    z-index: 999; }
+  .homepageHeaderWrapper {
+    width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    background-color: #2D2640;
+    padding: 12rem 0 12rem 0; }
+  .homepageHeaderContent {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column; }
+  .homepageHeaderBtn {
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 10px 26px;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    transition: all .5s ease-in-out;
+    text-decoration: none; }
+  .homepageHeaderImage {
+    width: 50%;
+    position: relative; }
+    .homepageHeaderImage img {
+      position: absolute;
+      right: 0;
+      z-index: 999; }
+
+.homepageCards {
+  width: 100%;
+  height: auto;
+  display: flex;
+  background-color: #FFFFFF;
+  position: relative;
+  padding: 20rem 0 20rem 0; }
+  .homepageCardsWrapper {
+    width: 100%;
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
+  .homepageCardsItem {
+    margin-right: 2rem; }
+    .homepageCardsItem:last-child {
+      margin-right: 0; }
+    .homepageCardsItem h2 {
+      font-size: 2.4rem;
+      font-family: 'DM Serif Display', serif;
+      letter-spacing: -1px;
+      color: #000000;
+      font-weight: 700;
+      display: block;
+      line-height: .80; }
+    .homepageCardsItem p {
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #000000; }
+
+.mainNavigation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative; }
+  .mainNavigationLogo {
+    min-width: 250px;
+    width: 250px;
+    display: flex;
+    align-items: center; }
+  .mainNavigationWrapper {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; }
+  .mainNavigationLeft {
+    width: 50%;
+    display: flex;
+    height: 100%; }
+  .mainNavigationRight {
+    width: 50%;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end; }
+  .mainNavigationItems ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center; }
+    .mainNavigationItems ul li {
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: .5px;
+      text-align: center;
+      margin: 0;
+      text-transform: uppercase;
+      padding: 20px;
+      position: relative;
+      cursor: pointer;
+      letter-spacing: 1px; }
+      .mainNavigationItems ul li:last-child {
+        padding-right: 0; }
+      .mainNavigationItems ul li a {
+        text-decoration: none;
+        color: #837D87;
+        transition: color .5s ease-in-out; }
+        .mainNavigationItems ul li a:hover {
+          color: #2D2640; }
+
+.logoHeader {
+  width: 190px; }
+
 .container {
   max-width: 128rem;
   margin: 8rem auto; }
+
+.uContentWrapper {
+  max-width: 1540px;
+  width: 80%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column; }
 
 .row {
   max-width: 114rem;
