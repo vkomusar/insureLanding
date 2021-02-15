@@ -8,13 +8,29 @@ p, ul li a {
     font-size: 8rem;
     font-family: 'DM Serif Display', serif;
     letter-spacing: -1px;
-    color: $color-white;
+    color: $colorWhite;
     font-weight: 700;
     display: block;
     line-height: .88;
 
+    @include respond(tab-land) {
+        font-size: 6rem; // TODO check font size
+    }
+
+    @include respond(tab-port) {
+        font-size: 8rem; // TODO check font size
+        text-align: center; 
+    }
+
+    @include respond(phone) {
+        font-size: 6rem; // TODO check font size
+    }
+
+
+
+
     &--Dark {
-        color: $color-black;
+        color: $colorBlack;
     }
 }
 
@@ -22,5 +38,24 @@ p, ul li a {
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 1.5;
-    color: $color-white;
+
+    &White {
+        color: $colorWhite;
+    }
+
+    &Grey {
+        $color: $colorGrey;
+    }
+
+    @include respond(tab-port) {
+        font-size: 2.8rem; // TODO check font size - on iphone6 it should be 16px
+        text-align: center; 
+    }
+
+    @include respond(phone) {
+        font-size: 2rem; // TODO check font size - on iphone6 it should be 16px
+        text-align: center; 
+    }
+
+
 }

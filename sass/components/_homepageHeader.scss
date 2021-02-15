@@ -5,7 +5,7 @@
     width: 100%;
     height: auto;
     display: flex;
-    background-color: $color-primary;
+    background-color: $colorPrimary;
     position: relative;
 
     &:after {
@@ -13,6 +13,14 @@
         position: absolute;
         top: 0;
         right: 0;
+        z-index: 9;
+
+        @include respond(tab-port) {
+            content: url('../images/bg-pattern-intro-right-mobile.svg');
+            top: 80%;
+            z-index: 9;
+        }
+
     }
 
     &:before {
@@ -20,15 +28,26 @@
         position: absolute;
         top: 70%;
         left: 0;
-        z-index: 999;
+        z-index: 9;
+
+        @include respond(tab-port) {
+             display: none;
+        }
+
     }
 
     &Wrapper {
         width: 100%;
-        background-color: $color-white;
+        background-color: $colorWhite;
         display: flex;
-        background-color: $color-primary;
-        padding: 12rem 0 12rem 0
+        background-color: $colorPrimary;
+        padding: 10rem 0;
+
+        @include respond(tab-port) {
+            flex-direction: column-reverse;
+            padding: 0;
+        }
+
     }
 
     &Content {
@@ -36,13 +55,38 @@
         height: auto;
         display: flex;
         flex-direction: column;
-        //padding: 8rem 3rem 8rem 0;
+        position: relative;
+        margin-right: 4rem;
+
+        @include respond(tab-port) {
+            width: 100%;
+            align-items: center;
+            padding: 10rem 16rem;
+            
+        }
+
+        @include respond(phone) {
+            padding: 10rem 3rem;            
+        }
+
+        &:before {
+   
+            @include respond(tab-port) {
+                content: url('../images/bg-pattern-intro-left-mobile.svg');
+                top: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 9;
+            }    
+        }
+
 
     }
 
     &Btn{
-        border: 1px solid $color-white;
-        color: $color-white;
+        border: 1px solid $colorWhite;
+        color: $colorWhite;
         font-weight: 600;
         padding: 10px 26px;
         background-color: transparent;
@@ -51,6 +95,10 @@
         letter-spacing: 1px;
         transition: all .5s ease-in-out;
         text-decoration: none;
+
+        @include respond(tab-port) {
+            font-size: 2rem;
+        }
         
     }
 
@@ -59,10 +107,22 @@
         //padding: 8rem 2rem 8rem 0;
         position: relative;
 
+        @include respond(tab-port) {
+            width: 100%;
+        }
+
+
+
         & img {
             position: absolute;
             right: 0;
-            z-index: 999;
+            z-index: 8;
+            max-width: 100%;
+
+            @include respond(tab-port) {
+                position: static;
+                width: 100%;
+            }
         }
     }
 

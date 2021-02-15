@@ -1,0 +1,92 @@
+.homepageCta {
+    width: 100%;
+    height: auto;
+    display: flex;
+    background-color: $colorWhite;
+    position: relative;
+    padding: 5rem 0 5rem 0; // check this
+
+    @include respond(tab-port) {
+        justify-content: center;
+        padding: 0;
+    }
+
+    &Wrapper {
+        background-color: $colorPrimary;
+        width: 100%;
+        display: flex;
+
+        @include respond(tab-port) {
+            flex-direction: column;
+            width: 90%;
+            margin: 0 auto; 
+        }
+    }
+
+    &Left {
+        width: 50%;
+        padding: 8rem;
+
+        @include respond(tab-port) {
+            width: 100%;
+            display: flex;
+            padding: 10rem 6rem 2rem 6rem;
+            position: relative;
+            justify-content: center;
+        }
+
+        @include respond(phone) {
+            padding: 10rem 3rem 4rem 3rem;
+        }
+
+        & h2 {
+            font-size: 4.4rem;
+            font-family: 'DM Serif Display', serif;
+            letter-spacing: -1px;
+            color: $colorWhite;
+            font-weight: 700;
+            display: block;
+            line-height: .88;
+            
+            @include respond(tab-port) {
+                line-height: 1;
+                text-align: center;
+            }
+
+        }
+
+        &:before{
+
+            @include respond(tab-port) {
+                content: url('../images/bg-pattern-how-we-work-mobile.svg');
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 99;
+             
+            }
+        }
+
+    }
+
+    &Right {
+        width: 50%;
+        padding: 8rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background: url('../images/bg-pattern-how-we-work-desktop.svg') no-repeat; // TODO change to use :before or ::after
+        background-size: auto 100%;
+        background-position: right;
+        
+        @include respond(tab-port) {
+            width: 100%;
+            background: none;
+            padding: 4rem 0 10rem 0; //TODO check margins
+            justify-content: center;      
+        }        
+
+
+    }
+
+}

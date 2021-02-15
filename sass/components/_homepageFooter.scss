@@ -1,0 +1,163 @@
+.homepageFooter {
+
+    width: 100%;
+    height: auto;
+    display: flex;
+    background-color: $colorLightgrey;
+    margin-top: 5rem;
+    position: relative;
+    background-image: url('../images/bg-pattern-footer-desktop.svg');
+    background-repeat: no-repeat;
+
+    @include respond(tab-port) {
+        background-image: url('../images/bg-pattern-footer-mobile.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    &Header {
+        display: flex;
+        padding: 6rem 0 3rem 0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #DADADA; // TODO check color
+        z-index: 2;
+
+
+        @include respond(tab-port) {
+            flex-direction: column;
+            width: 90%;
+            margin: 0 auto;
+            padding: 12rem 0 6rem 0;
+        }
+    }
+
+    &Logo {
+        width: 50%;
+
+        @include respond(tab-port) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &Social {        
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        @include respond(tab-port) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem; //TODO add uClass
+        }
+
+        & svg {
+            margin-right: 1.5rem;    
+            transition: all .35s ease-in-out;
+            fill: #837D88;
+
+            &:hover {
+                fill: #000000;
+                cursor: pointer;
+            }
+
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+
+    }
+
+    &Navigation {
+        display:flex;
+        padding-bottom: 4rem;
+
+        @include respond(tab-port) {
+            flex-direction: column;
+        }
+    }
+
+}
+
+.navigationCard {
+    width: 25%;
+    padding: 4rem 0;
+
+    @include respond(tab-port) {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding: 0 0 3rem 0;
+    }
+
+    &:first-child{
+        padding-top: 4rem;
+    }
+
+    
+    & ul {
+        list-style-type: none;
+
+        & li {
+            color: $colorPrimary;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 1px;
+            line-height: 2.2;
+            text-transform: uppercase;
+
+            @include respond(tab-port) {
+                font-size: 1.6rem;
+            }
+
+            &:not(:first-child){  
+
+                & span{
+                    display: inline-block;
+                    position: relative;
+    
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 1px;
+                        bottom: 4px;
+                        left: 0;
+                        background-color: $colorBlack; // TODO check if this will be color primary
+                        visibility: hidden;
+                        transform: scaleX(0);
+                        transition: all 0.35s ease-in-out;                   
+                     }
+    
+                     &:hover::before {
+                        transform: scaleX(1);
+                        visibility: visible;
+                     }    
+                }
+
+            }
+
+            &:first-child {
+                margin-bottom: 3rem;
+                color: $colorGrey;
+
+                &:hover {
+                    text-decoration: none;
+                    cursor: default;
+                }
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
