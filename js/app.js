@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', init, false);
 function init(){
-  var button = document.getElementById('toggleBtn');
-  button.addEventListener('click', function() {
+  var toggleBtn = document.getElementById('toggleBtn');  
 
-    //check if checkbox is checked if NOT add class
+  toggleBtn.addEventListener('click', function() {
+  
     var noScroll = document.body;
-    noScroll.classList = 'noScroll';
-    //if checkbox is checked REMOVE class
+
+    if(noScroll.classList.contains('uNoScroll')) {
+      noScroll.classList.remove('uNoScroll')
+    }else {
+      noScroll.classList = 'uNoScroll';
+    }
 
   });
+
 };
 

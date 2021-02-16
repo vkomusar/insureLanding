@@ -171,6 +171,9 @@ p, ul li a {
       color: #2D2640;
       background-color: #FFFFFF; }
 
+.uNoScroll {
+  overflow: hidden; }
+
 .homepageHeader {
   width: 100%;
   height: auto;
@@ -522,7 +525,7 @@ p, ul li a {
   .mainNavigationToggleWrapper {
     position: relative; }
   .mainNavigationCheckbox {
-    display: none; }
+    visibility: hidden; }
   .mainNavigationButton {
     background-color: #FFFFFF;
     width: 3.5rem;
