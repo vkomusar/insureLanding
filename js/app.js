@@ -9,7 +9,7 @@ function init(){
     if(noScroll.classList.contains('uNoScroll')) {
       noScroll.classList.remove('uNoScroll')
     }else {
-      noScroll.classList = 'uNoScroll';
+      noScroll.classList.add('uNoScroll');
     }
 
   });

@@ -73,3 +73,31 @@ A massive thank you to our community sponsors!
 - [Zero to Mastery](https://bit.ly/fem-ztm) is an incredible learning resource for all things web development. Led by Andrei Neagoie, the courses are really high-quality content and cover a wide range of in-demand skills.
 - [Diversify Tech](https://bit.ly/fem-diversify-tech) is an amazing resource for underrepresented people in tech. The site features job listings for anyone seeking new opportunities. The resource section is also full of useful links to dive into!
 - [Triplebyte](http://bit.ly/fem-triplebyte) is a really nice offering if you're looking for a new role. It's a free service that lets you take a confidential quiz. Based on your results companies will pitch you for their vacant roles!
+
+
+
+Evo par komentara:
+Mobilni izbornik - sad je ok, ali recimo da imaš više linkova mora ti se pojaviti scrollbar. Znam da ti sad ne treba ali uvijek pretpostavi da će ti zatrebati jer će netko kroz admin dodati novi link pa imaj spremno. 
+Jedan prijedlog kod z-index. Probaj koristiti recimo 0, 10, 20, … 100 a ne 8, 9, 10. Jer kad tad će ti se dogoditi da ćeš morati ubaciti nešto između 8 i 9, a onda moraš ići prepravljati svašta nešto. Ako koristiš na početku da ti je razlika između z-indexa 10 onda u budućnosti si ostaviš prostora da ubaciš između nešto a da nemaš dodatne ispravke.
+Fora su ti ovi hoveri na linkovima u footeru.
+Nazivi klasa su super, dobro koristiš BEM i atomic dizajn
+U CSS-u na body si uvijek možeš postaviti i iduće stilove:
+text-rendering: optimizeLegibility;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+Mac drugačije renderira fontove i bez ovoga ti font na Mac-ovima bude puno deblji nego na Windowsima
+Vidim da za media querye koristiš ovaj mixin response. To je isto ok a ako hoćeš možeš razmisliti i o nečemu ovakvome https://eduardoboucas.github.io/include-media/
+Mi koristimo taj include media i dosta je jednostavan za korištenje
+.navigationCard u _homepageFooter.scss - izbjegavaj toliko levela da ti ide u dubinu jer ćeš si potencijalno stvoriti problem kad neki drugi element nasljedi klasu ali je malo drugačiji pa moraš nešto prepisati i onda kreću kobasice od CSS-a da to uspiješ. Drži se do max 3 levela u dubinu. Znam da se u nekim situacijama to ne može izbjeći jer puno pseudo selektora ti treba za nešto ali uglavnom pazi na to.
+JS - app.js file
+Ako ti ne treba IE11 onda u ovakvim slučajevima slobodno koristi querySelector(‘.klasa’) umjesto getElementById
+var toggleBtn = document.getElementById(‘toggleBtn’);
+tako ćeš izbjeći pisanje ID-eva jer ih itako nije preporučljivo koristiti u CSS zbog specifičnosti pa se onda možeš osloniti samo na klase. Isto tako imaš i querySelectorAll(‘.klasa’) koji ti vrati NodeList svih elemenata. S tim da pazi, to nije Array nego je NodeList. Ima neke propertye koje ima i Array ali ne sve tako da nekad trebaš konvertirati taj NodeList u Array a to možeš napraviti preko destructuringa na ovaj način:
+let elementsList = […document.querySelectorAll(‘.klasa’)]
+U istom fileu pripazi na iduće (linija 12):
+noScroll.classList = ‘uNoScroll’;
+recimo da na tom elementu imaš neke druge klase, ovaj kod će ti izbrisati sve druge klase i dodati samo ovu. Zato se bolje koristi s add() metodom kao što iznad imaš classList.remove() tako i ovdje imaj classList.add() pa si siguran da neće nešto nestati
+Što se ostalog tiče nemam što dodati. Izgleda mi sve korektno napravljeno, vidim da si odlično preslikao dizajn.
+eduardoboucas.github.io
+include-media: Simple, elegant and maintainable media queries in Sass
+include-media is a Sass library for writing CSS media queries in an easy and maintainable way, using a natural and simplistic syntax.

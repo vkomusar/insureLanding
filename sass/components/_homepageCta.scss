@@ -12,16 +12,22 @@
     }
 
     &Wrapper {
-        background-color: $colorPrimary;
         width: 100%;
         display: flex;
+        background: url('../images/bg-pattern-how-we-work-desktop.svg'), $colorPrimary;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+        background-position: right;
 
         @include respond(tab-port) {
             flex-direction: column;
             width: 90%;
-            margin: 0 auto; 
+            margin: 0 auto;
+            background-image: url('../images/bg-pattern-how-we-work-mobile.svg');
+            background-repeat: no-repeat; 
+            background-position: right;
         }
-    }
+     }
 
     &Left {
         width: 50%;
@@ -53,20 +59,7 @@
                 text-align: center;
             }
 
-        }
-
-        &:before{
-
-            @include respond(tab-port) {
-                content: url('../images/bg-pattern-how-we-work-mobile.svg');
-                position: absolute;
-                top: 0;
-                right: 0;
-                z-index: 99;
-             
-            }
-        }
-
+        }        
     }
 
     &Right {
@@ -75,14 +68,12 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        background: url('../images/bg-pattern-how-we-work-desktop.svg') no-repeat; // TODO change to use :before or ::after
-        background-size: auto 100%;
-        background-position: right;
+
         
         @include respond(tab-port) {
             width: 100%;
             background: none;
-            padding: 4rem 0 10rem 0; //TODO check margins
+            padding: 4rem 0 10rem 0;
             justify-content: center;      
         }        
 
